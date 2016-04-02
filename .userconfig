@@ -1,0 +1,4 @@
+export B2G_DIR=${B2G_DIR:-$(cd $(dirname $0); pwd)}
+echo "B2G_DIR = ${B2G_DIR}"
+export GECKO_PATH=${B2G_DIR}/pine
+echo "GECKO_PATH = ${GECKO_PATH}"
