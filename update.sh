@@ -2,14 +2,20 @@
 
 . load-config.sh
 cd $GECKO_PATH
-if [$GECKO_PATH~="pine"]||[$GECKO_PATH~="mozilla-inbound"]
+result=${PWD##*/}
+if [ "$result" == "pine" ]||[ "$result" == "mozilla-inbound" ]; then
    hg pull
    hg up
 else
-   git pull
+   git pull mozillaorg master 
 fi
 
 cd ..
 cd gaia
-git pull
+
+if [ "$result" == "pine" ]; then
+   git pull mozillaorg kanikani
+else
+   git pull mozillaorg master
+fi
 cd ..
